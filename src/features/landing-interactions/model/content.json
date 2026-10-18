@@ -15,6 +15,10 @@
     "copied": "Сообщение скопировано.",
     "copyFallback": "Текст выделен. Скопируйте его вручную."
   },
+  "handoff": {
+    "telegramUrl": "https://t.me/timoshinski",
+    "emailAddress": "ceo@itwebs.by"
+  },
   "projects": {
     "integrations": {
       "title": "CRM и ERP для eCommerce-операций",

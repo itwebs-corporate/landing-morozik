@@ -1,0 +1,262 @@
+/* A visual layer over the preserved prototype layout. Keep motion on compositor properties. */
+:root {
+  --purple: #c5a8ee;
+  --purple-bright: #dec8ff;
+  --line: rgba(225, 206, 246, .16);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+body {
+  background: #0b0b11;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse 65% 80% at 85% 37%, rgba(114, 75, 163, .22), transparent 72%),
+    radial-gradient(ellipse 48% 60% at 8% 96%, rgba(82, 77, 134, .12), transparent 80%),
+    #090a0e;
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse, rgba(162, 100, 218, .29), rgba(94, 61, 150, .1) 44%, transparent 70%);
+  opacity: .9;
+}
+
+.hero-grain {
+  opacity: .035;
+}
+
+.hero .gradient-text,
+.final-cta .gradient-text {
+  background-image: linear-gradient(105deg, #f2e6ff 2%, #d5b2ff 46%, #a4b6f8 98%);
+  filter: drop-shadow(0 0 28px rgba(158, 111, 230, .24));
+}
+
+.nav-shell {
+  border-color: rgba(222, 196, 248, .2);
+  background: rgba(19, 17, 28, .84);
+  box-shadow: 0 16px 58px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .06);
+}
+
+.monogram {
+  background: linear-gradient(140deg, #755990, #362743 75%);
+  box-shadow: 0 0 20px rgba(182, 131, 232, .22);
+}
+
+.desktop-nav a {
+  position: relative;
+}
+
+.desktop-nav a::after {
+  position: absolute;
+  inset: auto 0 -7px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2c4ff, transparent);
+  content: '';
+  opacity: 0;
+  transform: scaleX(.4);
+  transition: opacity .3s, transform .3s var(--ease);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform .38s var(--ease), box-shadow .38s, border-color .38s, background-color .38s;
+}
+
+.button::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 18%, rgba(255, 255, 255, .3) 49%, transparent 78%);
+  content: '';
+  opacity: .5;
+  transform: translateX(-125%);
+  transition: transform .75s var(--ease);
+  pointer-events: none;
+}
+
+.button-primary {
+  background: linear-gradient(116deg, #ead8ff, #c9a7ef 57%, #b5bff5);
+  border-color: #ebd7ff;
+  box-shadow: 0 9px 32px rgba(164, 107, 219, .25), inset 0 1px rgba(255, 255, 255, .58);
+}
+
+.button-primary:hover {
+  background: linear-gradient(116deg, #f0e2ff, #d2b2f6 57%, #c1c9ff);
+  box-shadow: 0 16px 46px rgba(179, 115, 238, .4), 0 0 0 4px rgba(196, 153, 236, .1);
+}
+
+.button-secondary,
+.button-subtle {
+  background: linear-gradient(135deg, rgba(59, 44, 75, .68), rgba(29, 26, 39, .83));
+  border-color: rgba(204, 164, 240, .36);
+}
+
+.button-secondary:hover,
+.button-subtle:hover {
+  border-color: rgba(221, 182, 255, .7);
+  background: linear-gradient(135deg, rgba(82, 57, 104, .76), rgba(42, 35, 59, .92));
+  box-shadow: 0 10px 26px rgba(71, 39, 102, .25);
+}
+
+.product-scene::before {
+  position: absolute;
+  inset: 8% 2%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(157, 107, 220, .25), transparent 67%);
+  content: '';
+  pointer-events: none;
+}
+
+.laptop-shell {
+  box-shadow: inset 1px 1px rgba(231, 208, 255, .46), 0 0 96px rgba(149, 92, 201, .28);
+}
+
+.floating-object > div {
+  box-shadow: inset 1px 1px 2px rgba(239, 203, 255, .28), 0 14px 38px rgba(36, 18, 56, .35);
+}
+
+.problems {
+  background: linear-gradient(180deg, #111117, #0e0f14 80%);
+}
+
+.approach,
+.projects,
+.pricing,
+.faq {
+  background-image: radial-gradient(ellipse 65% 35% at 100% 5%, rgba(128, 84, 167, .065), transparent 80%);
+}
+
+.problem-card,
+.benefit-card,
+.review-card,
+.project-card {
+  border-color: rgba(205, 171, 232, .16);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .035), 0 20px 45px rgba(0, 0, 0, .12);
+}
+
+.problem-card:hover,
+.benefit-card:hover,
+.project-card:hover {
+  border-color: rgba(194, 151, 234, .65);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .07), 0 24px 50px rgba(54, 29, 76, .22), 0 0 34px rgba(139, 91, 183, .09);
+}
+
+.project-cover {
+  overflow: hidden;
+}
+
+.project-cover img {
+  transition: transform .65s var(--ease), filter .65s;
+}
+
+.project-cover:hover img,
+.project-cover:focus-visible img {
+  transform: scale(1.055);
+  filter: saturate(1.12);
+}
+
+.price-row {
+  border-radius: 16px;
+  transition: background-color .3s, box-shadow .3s;
+}
+
+.price-row:hover {
+  background: rgba(146, 97, 187, .075);
+  box-shadow: inset 3px 0 #bd94e3;
+}
+
+.faq-list details {
+  transition: background-color .35s, border-color .35s;
+}
+
+.faq-list details[open] {
+  background: linear-gradient(90deg, rgba(127, 83, 165, .09), transparent 75%);
+  border-color: rgba(191, 147, 226, .3);
+}
+
+.final-cta {
+  background:
+    radial-gradient(ellipse 44% 70% at 6% 35%, rgba(128, 78, 174, .15), transparent 78%),
+    radial-gradient(ellipse 48% 70% at 95% 100%, rgba(78, 71, 145, .11), transparent 80%),
+    #100d17;
+}
+
+.lead-form {
+  border-color: rgba(210, 172, 244, .22);
+  background: linear-gradient(150deg, rgba(38, 29, 48, .96), rgba(20, 18, 28, .98));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .28), inset 0 1px rgba(255, 255, 255, .05);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #c7a5ef;
+  box-shadow: 0 0 0 4px rgba(180, 136, 225, .12);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: #ef98ad;
+}
+
+.modal {
+  border-color: rgba(220, 185, 249, .35);
+  background: linear-gradient(160deg, #211829, #13131a 70%);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, .66), 0 0 70px rgba(154, 92, 206, .13);
+}
+
+.modal[open] {
+  animation: dialog-enter .38s var(--ease) both;
+}
+
+.modal::backdrop {
+  background: rgba(4, 5, 9, .76);
+  backdrop-filter: blur(8px);
+  animation: backdrop-enter .35s ease-out both;
+}
+
+.motion-ready .reveal {
+  transition-duration: .85s;
+  transition-timing-function: var(--ease);
+}
+
+@keyframes dialog-enter {
+  from { opacity: 0; transform: translateY(18px) scale(.965); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover::before { transform: translateX(125%); }
+  .hero .product-scene:hover .floating-object { filter: drop-shadow(0 19px 24px rgba(0, 0, 0, .6)); }
+}
+
+@media (max-width: 740px) {
+  .hero {
+    background:
+      radial-gradient(ellipse 95% 38% at 78% 28%, rgba(124, 77, 176, .24), transparent 78%),
+      #090a0e;
+  }
+  .hero-glow { opacity: .68; }
+  .nav-shell { background: rgba(20, 17, 29, .93); }
+  .product-scene::before { opacity: .65; }
+  .modal::backdrop { backdrop-filter: blur(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal[open], .modal::backdrop { animation: none; }
+  .button::before, .desktop-nav a::after, .project-cover img { transition: none; }
+  .motion-ready .reveal { opacity: 1; transform: none; }
+}

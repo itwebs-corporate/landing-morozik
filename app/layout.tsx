@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import site from '@/shared/config/site.json';
 import './globals.css';
+import './visual-polish.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

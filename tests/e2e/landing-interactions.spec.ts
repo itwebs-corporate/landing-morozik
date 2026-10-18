@@ -7,6 +7,7 @@ test('CTA, form validation, message handoff and closing work', async ({ page }) 
   const lead = page.locator('#lead-dialog');
   await expect(lead).toBeVisible();
   await expect(lead.locator('[name="name"]')).toBeFocused();
+  await expect(lead.locator('.modal-intro')).toContainText('Автоматической отправки пока нет');
   await expect(lead.locator('.form-explanation')).toContainText('Автоматическая отправка появится позже');
 
   await lead.locator('.form-submit').click();
@@ -29,6 +30,8 @@ test('CTA, form validation, message handoff and closing work', async ({ page }) 
   await expect(handoff.locator('#prepared-message')).toHaveValue(/Идея: Нужен CRM-прототип/);
   await expect(handoff.locator('#email-handoff')).toHaveAttribute('href', /^mailto:ceo@itwebs\.by/);
   await expect(handoff.locator('.form-explanation')).toContainText('Заявка ещё не отправлена');
+  await handoff.locator('[data-copy-message]').click();
+  await expect(handoff.locator('[data-copy-status]')).not.toBeEmpty();
   await page.keyboard.press('Escape');
   await expect(handoff).not.toBeVisible();
   await expect(opener).toBeFocused();
@@ -36,6 +39,12 @@ test('CTA, form validation, message handoff and closing work', async ({ page }) 
 
 test('project, information dialogs and FAQ controls work', async ({ page }) => {
   await page.goto('/');
+  for (const key of ['integrations', 'paint', 'english']) {
+    await page.locator(`[data-project="${key}"]`).first().click();
+    await expect(page.locator('#project-dialog')).toBeVisible();
+    await expect(page.locator('#project-modal-image')).toHaveAttribute('src', new RegExp(`project-${key}\\.webp$`));
+    await page.locator('#project-dialog [data-close]').click();
+  }
   await page.locator('[data-project="paint"]').first().click();
   const project = page.locator('#project-dialog');
   await expect(project).toBeVisible();
@@ -88,4 +97,16 @@ test('each visible lead button and both form locations respond', async ({ page }
   await inlineForm.locator('.form-submit').click();
   await expect(page.locator('#message-dialog')).toBeVisible();
   await expect(page.locator('#prepared-message')).toHaveValue(/Контакт: ivan@example.com/);
+});
+
+test('reduced motion keeps content visible and removes entrance animation', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const state = await page.locator('.hero h1 span').first().evaluate((element) => ({
+    animation: getComputedStyle(element).animationName,
+    opacity: getComputedStyle(element).opacity,
+  }));
+  expect(state.animation).toBe('none');
+  expect(state.opacity).toBe('1');
+  await expect(page.locator('.hero [data-lead]')).toBeVisible();
 });

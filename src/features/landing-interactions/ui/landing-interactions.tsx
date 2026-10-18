@@ -164,9 +164,9 @@ export function LandingInteractions() {
       const preview = select<HTMLTextAreaElement>('#prepared-message');
       if (preview) preview.value = message;
       const telegram = select<HTMLAnchorElement>('#telegram-handoff');
-      if (telegram) telegram.href = `https://t.me/timoshinski?text=${encodeURIComponent(message)}`;
+      if (telegram) telegram.href = `${content.handoff.telegramUrl}?text=${encodeURIComponent(message)}`;
       const email = select<HTMLAnchorElement>('#email-handoff');
-      if (email) email.href = `mailto:ceo@itwebs.by?subject=${encodeURIComponent(content.message.emailSubject)}&body=${encodeURIComponent(message)}`;
+      if (email) email.href = `mailto:${content.handoff.emailAddress}?subject=${encodeURIComponent(content.message.emailSubject)}&body=${encodeURIComponent(message)}`;
       const copyStatus = select<HTMLElement>('[data-copy-status]');
       if (copyStatus) copyStatus.textContent = '';
       openDialog(select('#message-dialog'), '#telegram-handoff');
