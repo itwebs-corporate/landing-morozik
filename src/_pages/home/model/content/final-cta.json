@@ -21,7 +21,7 @@
     "t019": "0 / 2000",
     "t020": "Получить прототип",
     "t021": "Ответим в течение 2 часов в рабочее время",
-    "t022": "Форма подготовит обращение. Отправку подтвердите в Telegram или почтовом приложении."
+    "t022": "Автоматическая отправка появится позже. Сейчас вы проверите сообщение и сами отправите его через Telegram или Email."
   },
   "images": {
     "image001": "nikita-morozik.webp"
@@ -29,6 +29,6 @@
   "links": {
     "link001": "https://t.me/timoshinski",
     "link002": "https://www.instagram.com/timoshinski/",
-    "link003": "mailto:sales@itwebs.ru"
+    "link003": "mailto:ceo@itwebs.by"
   }
 }

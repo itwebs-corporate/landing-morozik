@@ -1,0 +1,44 @@
+{
+  "errors": {
+    "name": "Укажите имя — не меньше двух символов.",
+    "contactRequired": "Укажите Telegram или Email для связи.",
+    "contactInvalid": "Введите Email или Telegram, например @username."
+  },
+  "message": {
+    "greeting": "Никита, здравствуйте! Хочу обсудить бесплатный прототип.",
+    "nameLabel": "Имя:",
+    "contactLabel": "Контакт:",
+    "ideaLabel": "Идея:",
+    "source": "Обращение с личного сайта Никиты Морозика / ITWEBS.",
+    "emailSubject": "Запрос на прототип — Никита Морозик / ITWEBS",
+    "projectPrefix": "Хочу обсудить: ",
+    "copied": "Сообщение скопировано.",
+    "copyFallback": "Текст выделен. Скопируйте его вручную."
+  },
+  "projects": {
+    "integrations": {
+      "title": "CRM и ERP для eCommerce-операций",
+      "image": "project-integrations.webp",
+      "category": "eCommerce · Интеграции",
+      "description": "В портфолио ITWEBS опубликован проект интеграции CRM и ERP для операций электронной коммерции. В карточке указан период разработки 8 месяцев и 2024 год.",
+      "duration": "8 месяцев",
+      "year": "2024"
+    },
+    "paint": {
+      "title": "Платформа для продажи красок",
+      "image": "project-paint.webp",
+      "category": "eCommerce · Ритейл",
+      "description": "Разработка eCommerce-платформы для розничной торговли красками представлена в портфолио ITWEBS. В карточке указаны 6 месяцев и 2023 год.",
+      "duration": "6 месяцев",
+      "year": "2023"
+    },
+    "english": {
+      "title": "Мобильный сервис для изучения языка",
+      "image": "project-english.webp",
+      "category": "React Native · Образование",
+      "description": "Образовательное мобильное приложение представлено в портфолио ITWEBS в категории React Native. В карточке указаны 4 месяца разработки и 2025 год.",
+      "duration": "4 месяца",
+      "year": "2025"
+    }
+  }
+}

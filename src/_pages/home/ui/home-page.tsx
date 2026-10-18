@@ -19,6 +19,7 @@ import { SourcesDialog } from './sources-dialog';
 import { DataDialog } from './data-dialog';
 import { Toast } from './toast';
 import schema from '../model/schema.json';
+import { LandingInteractions } from '@/features/landing-interactions/ui/landing-interactions';
 
 export function HomePage() {
   return (
@@ -49,6 +50,7 @@ export function HomePage() {
       <SourcesDialog />
       <DataDialog />
       <Toast />
+      <LandingInteractions />
     </>
   );
 }
