@@ -1,0 +1,112 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://morozik.itwebs.by/#nikita",
+      "name": "Морозик Никита Русланович",
+      "jobTitle": "Генеральный директор",
+      "image": "https://morozik.itwebs.by/images/nikita-morozik.webp",
+      "worksFor": {
+        "@id": "https://itwebs.ru/#organization"
+      },
+      "sameAs": [
+        "https://t.me/timoshinski",
+        "https://www.instagram.com/timoshinski/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://itwebs.ru/#organization",
+      "name": "ITWEBS",
+      "url": "https://itwebs.ru/",
+      "sameAs": [
+        "https://www.designrush.com/agency/profile/itwebs",
+        "https://www.goodfirms.co/company/itwebs",
+        "https://www.sortlist.com/agency/itwebs"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Прототип цифрового продукта",
+      "provider": {
+        "@id": "https://itwebs.ru/#organization"
+      },
+      "description": "Показ прототипа и разбор идеи. Объём согласуется до начала работы. Разработка и передача исходников обсуждаются отдельно.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Прототип правда бесплатный?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Создание согласованного демонстрационного прототипа, его показ и разбор идеи — без предоплаты. Разработка продукта оплачивается отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Почему не отдаёте прототип сразу?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До договорённости о разработке прототип остаётся демо-образцом команды. На показе вы увидите ключевой сценарий. Передачу исходников согласуем отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Один рабочий день на согласованный объём после получения вводных и подтверждения старта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что, если не понравится?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Вы не оплачиваете демонстрационный прототип и получаете разбор идеи. Продолжать разработку необязательно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто делает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Команда ITWEBS: дизайнеры и разработчики. Никита Морозик — генеральный директор компании. Состав команды и участие в задаче обсуждаются при первом контакте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно с NDA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обсудим условия конфиденциальности до передачи материалов. Сообщите о необходимости NDA в первом обращении."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как начать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Заполните короткую форму или напишите Никите в Telegram @timoshinski. В форме можно подготовить сообщение и продолжить диалог в Telegram."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работаете с Европой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В публичном профиле ITWEBS на Sortlist указана работа с клиентами из Европы и США. Условия для вашей страны и проекта обсуждаем до начала сотрудничества."
+          }
+        }
+      ]
+    }
+  ]
+}
