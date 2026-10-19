@@ -110,3 +110,44 @@ test('reduced motion keeps content visible and removes entrance animation', asyn
   expect(state.opacity).toBe('1');
   await expect(page.locator('.hero [data-lead]')).toBeVisible();
 });
+
+test('pricing highlight grows symmetrically without moving its content', async ({ page }) => {
+  await page.goto('/');
+  const row = page.locator('.price-row').last();
+  await row.scrollIntoViewIfNeeded();
+  const before = await row.evaluate((element) => ({
+    width: element.getBoundingClientRect().width,
+    titleX: element.querySelector('h3')!.getBoundingClientRect().x,
+    priceX: element.querySelector('strong')!.getBoundingClientRect().x,
+  }));
+  await row.hover();
+  await expect.poll(() => row.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe('1');
+  const after = await row.evaluate((element) => ({
+    frameWidth: parseFloat(getComputedStyle(element, '::before').width),
+    frameOpacity: getComputedStyle(element, '::before').opacity,
+    titleX: element.querySelector('h3')!.getBoundingClientRect().x,
+    priceX: element.querySelector('strong')!.getBoundingClientRect().x,
+  }));
+  expect(after.frameWidth / before.width).toBeCloseTo(1.1, 2);
+  expect(after.frameOpacity).toBe('1');
+  expect(after.titleX).toBeCloseTo(before.titleX, 1);
+  expect(after.priceX).toBeCloseTo(before.priceX, 1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+
+  await page.mouse.move(1, 1);
+  await row.locator('button').focus();
+  await expect.poll(() => row.evaluate((element) => getComputedStyle(element, '::before').opacity)).toBe('1');
+});
+
+test('secondary mobile links have comfortable touch targets', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'Touch target size is relevant to the mobile layout.');
+  await page.goto('/');
+  for (const selector of ['.client-names > a', '.footer-main > div > a', '.footer-main > .text-link']) {
+    const links = page.locator(selector);
+    const count = await links.count();
+    for (let index = 0; index < count; index += 1) {
+      const height = await links.nth(index).evaluate((element) => element.getBoundingClientRect().height);
+      expect(height).toBeGreaterThanOrEqual(44);
+    }
+  }
+});
